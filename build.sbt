@@ -2,9 +2,6 @@ name := "fibers"
 mainClass in Compile := None
 
 inThisBuild(Seq(
-  scalaOrganization := "org.typelevel",
-  scalaVersion := "2.12.4-bin-typelevel-4",
-
   version := "0.1.0-SNAPSHOT",
   organization := "eu.mulk",
 
@@ -22,12 +19,6 @@ lazy val core = (project in file("core"))
 
     scalaSource in Compile := baseDirectory.value / "lib",
     scalaSource in Test := baseDirectory.value / "t",
-
-    scalacOptions += "-Yliteral-types",
-
-    scalacOptions ++= Seq(
-      "-Ypartial-unification",
-    ),
 
     // Continuations
     addCompilerPlugin("org.scala-lang.plugins" % "scala-continuations-plugin_2.12.2" % "1.0.3"),
