@@ -1,6 +1,7 @@
 package eu.mulk.fibers
 
 import monix.eval.Task
+import monix.execution.Ack.{Continue, Stop}
 import monix.execution.cancelables.MultiAssignmentCancelable
 import monix.execution.{Cancelable, Scheduler}
 import monix.reactive.{Observable, OverflowStrategy}
@@ -135,10 +136,8 @@ object Fiber extends FiberConversions with FiberTypes {
         var more = init
         var done = false
         cancelable := Cancelable { () ⇒
-          if (!done) {
-            done = true
-            out.onComplete()
-          }
+          out.onComplete()
+          done = true
         }
         while (!done) {
           try {
@@ -163,8 +162,12 @@ object Fiber extends FiberConversions with FiberTypes {
                 state.fiberVar = value
                 more = continue(()).asInstanceOf[(Effect[Out], Any ⇒ Any)]
               case Effect.Emit(returnValue) ⇒
-                out.onNext(returnValue.asInstanceOf[Out])
-                more = continue(()).asInstanceOf[(Effect[Out], Any ⇒ Any)]
+                out.onNext(returnValue.asInstanceOf[Out]) match {
+                  case _: Continue ⇒
+                    more = continue(()).asInstanceOf[(Effect[Out], Any ⇒ Any)]
+                  case _: Stop ⇒
+                    cancelable.cancel()
+                }
               case Effect.Fail(throwable) ⇒
                 out.onError(throwable)
                 done = true
