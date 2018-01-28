@@ -28,7 +28,7 @@ lazy val core = (project in file("core"))
 
     // Monix
     libraryDependencies ++= Seq(
-      "io.monix" %% "monix-reactive" % "2.3.0",
+      "io.monix" %% "monix-reactive" % "2.3.3",
     ),
 
     // Minitest
