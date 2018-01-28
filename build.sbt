@@ -2,7 +2,7 @@ name := "fibers"
 mainClass in Compile := None
 
 inThisBuild(Seq(
-  version := "0.1.0-SNAPSHOT",
+  version := "0.1.0",
   organization := "eu.mulk",
 
   run / fork := true,
