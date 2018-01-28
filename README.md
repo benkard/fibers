@@ -6,15 +6,7 @@ plugin][continuations].
 
 ## Usage
 
-Since the library is not currently published in a publically
-accessible Maven repository, you have to compile it and publish it
-into your local Maven repository yourself:
-
-```bash
-sbt publishLocal
-```
-
-And then, in your `build.sbt` file:
+In your `build.sbt` file:
 
 ```scala
 // Enable CPS plugin
@@ -23,8 +15,9 @@ libraryDependencies += "org.scala-lang.plugins" %% "scala-continuations-library"
 scalacOptions += "-P:continuations:enable",
 
 // Depend on fibers-core
+resolvers += Resolver.bintrayRepo("mulk", "maven")
 libraryDependencies ++= Seq(
-  "eu.mulk" %% "fibers-core" % "0.1.0-SNAPSHOT",
+  "eu.mulk" %% "fibers-core" % "0.1.0",
 )
 ```
 
