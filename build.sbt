@@ -11,6 +11,8 @@ inThisBuild(Seq(
   scalacOptions ++= Seq(
     "-deprecation",
   ),
+
+  licenses += ("AGPL-V3", url("https://www.gnu.org/licenses/agpl-3.0.html"))
 ))
 
 lazy val core = (project in file("core"))
