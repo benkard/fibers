@@ -33,8 +33,8 @@ lazy val core = (project in file("core"))
 
     // Minitest
     libraryDependencies ++= Seq(
-      "io.monix" %% "minitest"      % "2.0.0" % "test",
-      "io.monix" %% "minitest-laws" % "2.0.0" % "test",
+      "io.monix" %% "minitest"      % "2.2.1" % "test",
+      "io.monix" %% "minitest-laws" % "2.2.1" % "test",
     ),
     testFrameworks += new TestFramework("minitest.runner.Framework"),
   )

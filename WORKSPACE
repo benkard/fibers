@@ -32,9 +32,9 @@ maven_repository(
         "org.scala-lang:scala-library",
     ],
     force = [
-        "org.scala-lang:scala-library:2.12.4",
-        "org.scala-lang:scala-reflect:2.12.4",
-        "org.scala-lang:scala-compiler:2.12.4",
+        "org.scala-lang:scala-library:2.12.7",
+        "org.scala-lang:scala-reflect:2.12.7",
+        "org.scala-lang:scala-compiler:2.12.7",
     ],
     deps = [
         "org.scala-lang.plugins:scala-continuations-library_2.12:1.0.3",
@@ -52,9 +52,9 @@ maven_repository(
         'e22de3366a698a9f744106fb6dda4335838cf6a7:org.scala-lang.modules:scala-xml_2.12:1.0.6',
         'fc5af375ef8c9da08fd5dc6c8055aeec09be60ae:org.scala-lang.plugins:scala-continuations-library_2.12:1.0.3',
         '88dd2cf0cb6f74ed02c19872b92d64e09050cff2:org.scala-lang.plugins:scala-continuations-plugin_2.12.2:1.0.3',
-        'c69c0ee397050d7fa30cfe490471388d30c03bd0:org.scala-lang:scala-compiler:2.12.4',
-        'omit:org.scala-lang:scala-library:2.12.4',
-        '2df9e6015b97e35464edddd20eec392bb54fab11:org.scala-lang:scala-reflect:2.12.4',
+        'a393b72134dff0751d5110c3e4808689deba75c1:org.scala-lang:scala-compiler:2.12.7',
+        'omit:org.scala-lang:scala-library:2.12.7',
+        'c5a8eb12969e77db4c0dd785c104b59d226b8265:org.scala-lang:scala-reflect:2.12.7',
     ],
 )
 load("@deps//:rules.bzl", "deps_compile")
