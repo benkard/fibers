@@ -1,6 +1,5 @@
 package eu.mulk.fibers
 
-import scala.language.implicitConversions
 import scala.util.continuations.cpsParam
 
 private[fibers] trait FiberTypes {

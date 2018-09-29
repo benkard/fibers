@@ -127,7 +127,7 @@ object Fiber extends FiberConversions with FiberTypes {
     *             [[Fiber.emit]]ted by the fiber.
     */
   def run[Out](thunk: ⇒ Unit @fiber[Out]): Observable[Out] = {
-    var state = new FiberState
+    val state = new FiberState
 
     monix.reactive.Observable.create[Out](OverflowStrategy.Unbounded) { out ⇒
       val cancelable = MultiAssignmentCancelable()
